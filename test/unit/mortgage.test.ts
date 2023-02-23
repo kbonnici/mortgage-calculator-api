@@ -97,7 +97,7 @@ describe('Calculate monthly mortgage payments', ()=> {
         expect(monthlyPayment).toHaveProperty('error', constants.interest.betweenZeroOne);
     })
 
-    test('returns invalidIncrement error when amortizationPeriod is not a multiple of 5 or between 5 and 30', () => {
+    test('returns invalidIncrement error when amortizationPeriod is not a multiple of 5', () => {
         mortgage.amortizationPeriod = 6;
         let monthlyPayment = mortgage.calculateMonthlyMortgagePayment();
 
@@ -110,6 +110,13 @@ describe('Calculate monthly mortgage payments', ()=> {
 
         mortgage.amortizationPeriod = 4;
         monthlyPayment = mortgage.calculateMonthlyMortgagePayment();
+
+        expect(monthlyPayment).toHaveProperty('error', constants.amortizationPeriod.invalidIncrement);
+    })
+
+    test('returns invalidIncrement error when amortizationPeriod is not between 5 and 30', () => {
+        mortgage.amortizationPeriod = 35;
+        let monthlyPayment = mortgage.calculateMonthlyMortgagePayment();
 
         expect(monthlyPayment).toHaveProperty('error', constants.amortizationPeriod.invalidIncrement);
     })
