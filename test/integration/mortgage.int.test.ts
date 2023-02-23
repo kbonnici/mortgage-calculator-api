@@ -1,13 +1,14 @@
 import request from 'supertest'
 import app from '../../src/app/app.js'
 import constants from '../../constants.js';
+import { PaymentSchedule } from '../../src/mortgage/PaymentSchedule.js';
 
 describe('GET /', ()=> {
     const price = 1000000;
     const downPayment = 250000;
     const annualInterestRate = 0.05;
     const amortizationPeriod = 25;
-    const paymentSchedule = 12;
+    const paymentSchedule = PaymentSchedule.MONTHLY;
 
     test('given all valid fields', async () => {
         const response = await request(app).get('/').send({
