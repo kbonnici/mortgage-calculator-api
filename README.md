@@ -35,3 +35,4 @@ and produces the following outputs:
 * Unit tests: `npm run test`
 * Integration tests: `npm run integration`
 * Both: `npm run test integration`
+* Coverage report: `npx jest --coverage`
