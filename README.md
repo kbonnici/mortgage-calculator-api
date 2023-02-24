@@ -15,6 +15,8 @@ and produces the following outputs:
 * Payment per payment schedule
 * An error if the inputs are not valid
 
+This API can be interacted with using the [accompanying frontend application](https://github.com/kbonnici/mortgage-calculator-frontend)
+
 ### Mortgage Payment Formula
 
 `M = P * (r * (1+r)^n)/((1 + r)^n - 1)`
